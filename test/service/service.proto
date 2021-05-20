@@ -1,0 +1,22 @@
+syntax="proto3";
+package test;
+
+option go_package = "/home/akshathkaushal/go/src/test";
+
+message UserData {
+    int64 ID = 1;
+    string Name = 2;
+}
+
+message Response {
+    string Name = 1;
+}
+
+message GetUser {
+    int64 ID = 1;
+}
+
+service DoOperations {
+    rpc Add(UserData) returns (UserData);
+    rpc Get(GetUser) returns (UserData);
+}

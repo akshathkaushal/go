@@ -1,0 +1,19 @@
+syntax="proto3";
+package grpc_test;
+
+option go_package = "home/akshathkaushal/go/bin/grpc_test";
+
+message Request {
+    int64 a = 1; // 1 denote the size of a 1-15->1 byte, 16-2047->more than that
+    int64 b = 2; // 2 denote the index of b
+}
+
+message Response {
+    int64 result = 1;
+}
+
+service CalcService {
+    rpc Add(Request) returns (Response); // Add is the name of the function
+    rpc Multiply(Request) returns (Response);
+}
+
